@@ -1,11 +1,27 @@
+import axios from 'axios'
 import React from 'react'
+import {Link} from 'react-router-dom'
 
-const Ticket = () => {
+// const handleDelete = async () => {
+//   try {
+//     // await axios.delete("http://localhost:300/api/ticket/:id")
+
+//   }
+//   catch (err) {
+    
+//   }
+// }
+
+const Ticket = ({ ticket }) => {
+
+
   return (
     <div>
-    <span className='ticketTitle'>Lorem ipsum</span>
+      <Link to={`/ticket/${ticket._id}`}><span className='ticketTitle'>{ticket.title}</span>
+</Link>
       <hr />
-      <span className='ticketComment'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+      <span className='ticketComment'>{ticket.comment}</span>
+    {/* <button onClick={handleDelete}>Delete</button> */}
     </div>
     
 
