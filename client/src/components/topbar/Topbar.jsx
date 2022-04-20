@@ -1,16 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./topbar.css";
 
 const Topbar = () => {
 	return (
-		<ul>
-			<li>
+		<div className="top">
+			<div className="topLeft">Bug Tickets</div>
+			<div className="topCenter">
 				<Link to="/">Home</Link>
-			</li>
-			<li>
+			</div>
+			<div className="topRight">
 				<Link to="/write"> Write</Link>
-			</li>
-		</ul>
+			</div>
+		</div>
 	);
 };
 

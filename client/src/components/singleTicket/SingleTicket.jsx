@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Topbar from "../topbar/Topbar";
 import axios from "axios";
+import "./singleTicket.css";
+import Image from './pexels.jpg'
 
 const SingleTicket = () => {
 	const location = useLocation();
@@ -38,50 +40,61 @@ const SingleTicket = () => {
 		}
 	};
 
-	const handleEdit = async() => {
+	const handleEdit = async () => {
 		try {
 			await axios.put("http://localhost:5000/api/ticket/" + path, {
-				title, comment
-			
-			})
+				title,
+				comment,
+			});
 			// window.location.reload()
-			setUpdateMode(false)
-	}
-
-		catch (err) {
-			
-		}
-	}
+			setUpdateMode(false);
+		} catch (err) {}
+	};
 
 	return (
-		<div>
+		<>
 			<Topbar />
-			{updateMode ? (
-				<input
-					type="text"
-					value={title}
-					onChange={(evt) => setTitle(evt.target.value)}
-				/>
-			) : (
-				<span className="singleTicketTitle">{title}</span>
-			)}
-			{updateMode ? (
-				<textarea
-					value={comment}
-					onChange={(evt) => setComment(evt.target.value)}
-				></textarea>
-			) : (
-				<p className="singleTicketComment">{comment}</p>
-			)}
-			<p>
-				{updateMode ?  <button onClick={handleEdit}>Save</button> :
-			 <button onClick={() => setUpdateMode(true)} >Edit</button> }
+			<img src={Image} alt="img" ></img>
 
 
+			<div className="singleTicket">
 				
-				<button onClick={handleDelete}>Delete</button>
-			</p>
-		</div>
+				{updateMode ? (
+					<input
+						type="text"
+						value={title}
+						onChange={(evt) => setTitle(evt.target.value)}
+					/>
+				) : (
+					<h1 className="singleTicketTitle">{title}</h1>
+				)}
+				{updateMode ? (
+					<textarea
+						value={comment}
+						onChange={(evt) => setComment(evt.target.value)}
+					></textarea>
+				) : (
+					<p className="singleTicketComment">{comment}</p>
+				)}
+				<p>
+					<div className="singleTicketEditContainer">
+						{updateMode ? (
+							<i class="singleTicketIcon fas fa-save" onClick={handleEdit}></i>
+						) : (
+							<i
+								className="singleTicketIcon fas fa-edit"
+								onClick={() => setUpdateMode(true)}
+							></i>
+						)}
+						<i
+							class="singleTicketIcon fa-regular fa-trash-can"
+							onClick={handleDelete}
+						></i>
+						
+					</div>
+				</p>
+			</div>
+		</>
 	);
 };
 
