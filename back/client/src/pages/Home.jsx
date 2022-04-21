@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Tickets from "../components/tickets/Tickets";
 import Topbar from "../components/topbar/Topbar";
-import axios from "axios";
+import { axiosInstance } from "../config";
 import "./home.css";
 
 const Home = () => {
@@ -12,7 +12,7 @@ const Home = () => {
 
 	useEffect(() => {
 		const fetchTickets = async () => {
-			const response = await axios.get(
+			const response = await axiosInstance.get(
 				"http://localhost:5000/api/ticket/all-tickets"
 			);
 			console.log(response);

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Topbar from "../topbar/Topbar";
-import axios from "axios";
+import { axiosInstance } from "../../config.js";
 import "./singleTicket.css";
-import Image from './pexels.jpg'
+import Image from "./pexels.jpg";
 
 const SingleTicket = () => {
 	const location = useLocation();
@@ -17,7 +17,7 @@ const SingleTicket = () => {
 	useEffect(() => {
 		try {
 			const getTicket = async () => {
-				const response = await axios.get(
+				const response = await axiosInstance.get(
 					"http://localhost:5000/api/ticket/" + path
 				);
 				console.log(response);
@@ -33,7 +33,7 @@ const SingleTicket = () => {
 
 	const handleDelete = async () => {
 		try {
-			await axios.delete("http://localhost:5000/api/ticket/" + path);
+			await axiosInstance.delete("http://localhost:5000/api/ticket/" + path);
 			window.location.replace("/");
 		} catch (err) {
 			console.log(err);
@@ -42,7 +42,7 @@ const SingleTicket = () => {
 
 	const handleEdit = async () => {
 		try {
-			await axios.put("http://localhost:5000/api/ticket/" + path, {
+			await axiosInstance.put("http://localhost:5000/api/ticket/" + path, {
 				title,
 				comment,
 			});
@@ -54,17 +54,15 @@ const SingleTicket = () => {
 	return (
 		<>
 			<Topbar />
-			<img src={Image} alt="img" ></img>
-
+			<img src={Image} alt="img"></img>
 
 			<div className="singleTicket">
-				
 				{updateMode ? (
 					<input
 						type="text"
 						value={title}
-						className='singleTicketInput'
-						autoFocus='autofocus'
+						className="singleTicketInput"
+						autoFocus="autofocus"
 						onChange={(evt) => setTitle(evt.target.value)}
 					/>
 				) : (
@@ -73,7 +71,7 @@ const SingleTicket = () => {
 				{updateMode ? (
 					<textarea
 						value={comment}
-						className= "singleTicketTextArea"
+						className="singleTicketTextArea"
 						onChange={(evt) => setComment(evt.target.value)}
 					></textarea>
 				) : (
@@ -82,23 +80,24 @@ const SingleTicket = () => {
 				<p>
 					<div className="singleTicketEditContainer">
 						{updateMode ? (
-							<i className="singleTicketIcon fas fa-save"  onClick={handleEdit}></i>
-							
-						)  :<> 
 							<i
-								className="singleTicketIcon fas fa-edit"
-								onClick={() => setUpdateMode(true)}
+								className="singleTicketIcon fas fa-save"
+								onClick={handleEdit}
+							></i>
+						) : (
+							<>
+								<i
+									className="singleTicketIcon fas fa-edit"
+									onClick={() => setUpdateMode(true)}
 								></i>
 								<i
-							class="singleTicketIcon fa-regular fa-trash-can"
-							onClick={handleDelete}
-						></i>
-						</>}
-						
-						
+									class="singleTicketIcon fa-regular fa-trash-can"
+									onClick={handleDelete}
+								></i>
+							</>
+						)}
 					</div>
-					</p>
-				
+				</p>
 			</div>
 		</>
 	);

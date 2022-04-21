@@ -1,5 +1,5 @@
 // import "./create.css";
-import axios from "axios";
+import { axiosInstance } from "../../config.js";
 import React, { useState } from "react";
 import Topbar from "../../components/topbar/Topbar";
 import Image from "./pexels.jpg";
@@ -16,7 +16,7 @@ const Create = () => {
 			comment,
 		};
 		try {
-			await axios.post("http://localhost:5000/api/ticket/", newTicket);
+			await axiosInstance.post("http://localhost:5000/api/ticket/", newTicket);
 			window.location.replace("http://localhost:3000");
 		} catch (error) {
 			console.log(error.response.data);
