@@ -7,7 +7,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
- 
+
 }
 
 
@@ -16,14 +16,14 @@
 .ticketTitle {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
 }
 
-.ticketComment{
+.ticketComment {
     font-family: 'Varela Round', sans-serif;
     font-size: 15px;
-    color:#444;
+    color: #444;
     line-height: 24px;
     margin-top: 15px;
     text-overflow: ellipsis;

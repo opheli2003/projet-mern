@@ -63,6 +63,8 @@ const SingleTicket = () => {
 					<input
 						type="text"
 						value={title}
+						className='singleTicketInput'
+						autoFocus='autofocus'
 						onChange={(evt) => setTitle(evt.target.value)}
 					/>
 				) : (
@@ -71,6 +73,7 @@ const SingleTicket = () => {
 				{updateMode ? (
 					<textarea
 						value={comment}
+						className= "singleTicketTextArea"
 						onChange={(evt) => setComment(evt.target.value)}
 					></textarea>
 				) : (
@@ -79,20 +82,23 @@ const SingleTicket = () => {
 				<p>
 					<div className="singleTicketEditContainer">
 						{updateMode ? (
-							<i class="singleTicketIcon fas fa-save" onClick={handleEdit}></i>
-						) : (
+							<i className="singleTicketIcon fas fa-save"  onClick={handleEdit}></i>
+							
+						)  :<> 
 							<i
 								className="singleTicketIcon fas fa-edit"
 								onClick={() => setUpdateMode(true)}
-							></i>
-						)}
-						<i
+								></i>
+								<i
 							class="singleTicketIcon fa-regular fa-trash-can"
 							onClick={handleDelete}
 						></i>
+						</>}
+						
 						
 					</div>
-				</p>
+					</p>
+				
 			</div>
 		</>
 	);

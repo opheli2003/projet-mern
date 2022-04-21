@@ -4,15 +4,27 @@ import "./topbar.css";
 
 const Topbar = () => {
 	return (
-		<div className="top">
-			<div className="topLeft">Bug Tickets</div>
-			<div className="topCenter">
-				<Link to="/">Home</Link>
+		<>
+			<div className="top">
+				<div className="topLeft" style={{ color: "#2b2b2b" }}>
+					Bug Tickets
+				</div>
+				<div className="topCenter">
+					<Link to="/" style={{ textDecoration: "none", color: "#2b2b2b" }}>
+						Home
+					</Link>
+				</div>
+				<div className="topRight">
+					<Link
+						to="/write"
+						style={{ textDecoration: "none", color: "#2b2b2b" }}
+					>
+						{" "}
+						Write
+					</Link>
+				</div>
 			</div>
-			<div className="topRight">
-				<Link to="/write"> Write</Link>
-			</div>
-		</div>
+		</>
 	);
 };
 

@@ -5,15 +5,17 @@
 
 
 
-img{
-    width:100%;
-    height:200px
+img {
+    width: 100%;
+    height: 200px
 }
 
 
 
 .singleTicket {
-    padding: 20px
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .singleTicketTitle {
@@ -23,15 +25,49 @@ img{
     font-size: 26px;
 }
 
+.singleTicketInput {
+    margin: 10px;
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    color: gray;
+    /* ft office de font-color */
+}
+
+.singleTicketInput:focus{
+    outline: none;
+}
+
+.singleTicketTextArea{
+    margin: 10px;
+    font-family: 'Lora', serif;
+    font-size: 26px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    color: gray;
+    
+}
+
+.singleTicketTextArea:focus{
+    outline: none;
+}
+
 .singleTicketEditContainer {
     float: right;
     /* On ft flotter à droite le container */
+
 }
+
+
 
 /* on les sépare */
 .singleTicketIcon {
     margin-right: 13px;
     cursor: pointer;
+    font-size: 20px;
 }
 
 .singleTicketIcon:first-child {
