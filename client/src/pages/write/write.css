@@ -1,0 +1,50 @@
+img{
+    width:100%;
+    height:200px;
+}
+
+.write{
+    padding-top: 50px;
+}
+
+.writeForm{
+    position: relative;    
+}
+
+.writeFormGroup{
+    margin-left: 150px;
+
+}
+
+.writeInput{
+    font-size: 30px;
+    border: none;
+    padding: 20px;
+    width: 70vw;
+    /* =70% de la la largeur du viewport(fen de navig)*/    
+}
+
+.writeInput:focus{
+    outline: none;
+    /* outline = quatre contours d'un élément lors de sa prise de focus */
+}
+
+.writeComment{
+    font-size:20px ;
+    height: 100vh;
+    /* pr enlever la barre de scroll */
+}
+
+.writeSubmit{
+    position: absolute;
+    top:145px;
+    right:60px;
+    color: white;
+    background-color: teal;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+

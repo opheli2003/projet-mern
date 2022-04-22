@@ -1,0 +1,37 @@
+.ticket {
+    width: 100%;
+    margin: 50px 25px 60px 25px;
+    /* s'applique à chaque élement de la div */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+
+.ticketTitle {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.ticketComment {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 15px;
+    color: #444;
+    line-height: 24px;
+    margin-top: 15px;
+    text-overflow: ellipsis;
+    /* ajte des dot */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    /* Les 5 valeurs vt ensemble */
+
+}
