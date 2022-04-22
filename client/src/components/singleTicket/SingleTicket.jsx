@@ -18,7 +18,7 @@ const SingleTicket = () => {
 		try {
 			const getTicket = async () => {
 				const response = await axios.get(
-					"http://localhost:5000/api/ticket/" + path
+					"https://mern-gladys.herokuapp.com//api/ticket/" + path
 				);
 				console.log(response);
 				setSingleTickets(response.data);
@@ -33,7 +33,7 @@ const SingleTicket = () => {
 
 	const handleDelete = async () => {
 		try {
-			await axios.delete("http://localhost:5000/api/ticket/" + path);
+			await axios.delete("https://mern-gladys.herokuapp.com//api/ticket/" + path);
 			window.location.replace("/");
 		} catch (err) {
 			console.log(err);
@@ -42,7 +42,7 @@ const SingleTicket = () => {
 
 	const handleEdit = async () => {
 		try {
-			await axios.put("http://localhost:5000/api/ticket/" + path, {
+			await axios.put("https://mern-gladys.herokuapp.com//api/ticket/" + path, {
 				title,
 				comment,
 			});

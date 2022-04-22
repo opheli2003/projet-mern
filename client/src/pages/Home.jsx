@@ -13,7 +13,7 @@ const Home = () => {
 	useEffect(() => {
 		const fetchTickets = async () => {
 			const response = await axios.get(
-				"http://localhost:5000/api/ticket/all-tickets"
+				"https://mern-gladys.herokuapp.com/api/ticket/all-tickets"
 			);
 			console.log(response);
 			setTickets(response.data);
